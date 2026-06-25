@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
 <div class="app">
@@ -20,10 +21,16 @@
 
   <div class="feed raised">
     <div class="scr">
-      <img src="feed.gif" alt="Glitch City feed">
+      <img src="{% static 'feed.gif' %}" alt="Glitch City feed">
       <span class="ovl tl">Ch3 · GLITCH CITY</span>
       <span class="ovl tr"><b></b>BTC-FEED</span>
     </div>
+  </div>
+
+  <div class="ads">
+    <div class="ad ad-kiririn"><span class="ad-kick">напиток №1 в Glitch City</span><span class="ad-name">KIRIRIN &#9733; LIGHT</span><span class="ad-sub">Пей будущее</span></div>
+    <div class="ad ad-nano"><span class="ad-kick">customize</span><span class="ad-name">NANOCAMO APP</span><span class="ad-sub">Смени окрас за секунду</span></div>
+    <div class="ad ad-eye"><span class="ad-kick">augmented</span><span class="ad-name">EYE v2.06X</span><span class="ad-sub">Дополни свой взгляд</span></div>
   </div>
 
   <div class="computer raised">
@@ -77,9 +84,13 @@
     </div>
   </div>
 
+
+  <div class="ticker"><div class="ticker-track" id="ticker"></div></div>
   <div class="foot">Помни, приятель — Пей ответственно!</div>
+  <div class="copy">&copy; 207X &middot; <b>VA-11 HALL-A</b> &middot; собственник: Dana &laquo;Boss&raquo; Zane &middot; сертификат B.T.C</div>
 </div>
 
-<script src="app.js" defer></script>
+<script id="bootstrap">window.DRINKS={{ drinks_json|safe }};window.BOTTLED={{ bottled_json|safe }};window.NEWS={{ news_json|safe }};</script>
+<script src="{% static 'app.js' %}" defer></script>
 </body>
 </html>
