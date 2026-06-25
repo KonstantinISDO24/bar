@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VA-11 HALL-A · B.T.C</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="hero">
+    <div class="sub">Cyberpunk Bartender Action</div>
+    <div class="big">VA-11 HALL-A</div>
+    <div class="catch">«Время разливать напитки и решать судьбы»<span class="cur">_</span></div>
+  </header>
+
+  <div class="feed raised">
+    <div class="scr">
+      <img src="feed.gif" alt="Glitch City feed">
+      <span class="ovl tl">Ch3 · GLITCH CITY</span>
+      <span class="ovl tr"><b></b>BTC-FEED</span>
+    </div>
+  </div>
+
+  <div class="computer raised">
+    <div class="winbar">
+      <span class="ic">🍸</span>
+      <span class="ttl">B.T.C.EXE — Руководство по смешиванию</span>
+      <span class="winbtns">
+        <button class="winbtn"><b>_</b></button>
+        <button class="winbtn"><b>▢</b></button>
+        <button class="winbtn"><b>✕</b></button>
+      </span>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="name">По названию</button>
+      <button class="tab" data-tab="flavor">По вкусу</button>
+      <button class="tab" data-tab="type">По виду</button>
+      <button class="tab" data-tab="bottled">Бутылочные</button>
+    </div>
+
+    <div class="win-client">
+      <div class="btc-body">
+        <div class="list" id="list"></div>
+        <div class="detail" id="detail">
+          <div class="welcome">
+            <div class="term">C:\BTC&gt; load guide.dat<span class="c">_</span></div>
+            Добро пожаловать обратно, <b>Jill</b>.<br><br>
+            Это <b>B.T.C</b> — руководство по смешиванию.<br>
+            Выбери вкладку сверху и напиток в списке слева — рецепт и досье появятся здесь.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="statusbar">
+      <div class="scell grow" id="status">Готово · 34 рецепта в базе</div>
+      <div class="scell miniplayer" id="player">
+        <span class="eq"><i></i><i></i><i></i></span>
+        <button id="prev" title="назад">⏮</button>
+        <button id="playbtn" title="пуск/пауза">▶</button>
+        <button id="next" title="вперёд">⏭</button>
+        <span class="trk" id="track">A Neon Glow Lights...</span>
+      </div>
+      <div class="scell tray" title="CALICOMP 1.1">
+        <svg viewBox="0 0 31 23" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+          <g fill="#28d7e6"><rect x="6" y="2" width="3" height="4"/><rect x="22" y="2" width="3" height="4"/>
+          <rect x="7" y="4" width="17" height="3"/><rect x="4" y="6" width="23" height="11"/><rect x="6" y="17" width="19" height="2"/></g>
+          <g fill="#0a0913"><rect x="10" y="9" width="3" height="3"/><rect x="18" y="9" width="3" height="3"/><rect x="14" y="12" width="3" height="2"/></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">Помни, приятель — Пей ответственно!</div>
+</div>
+
+<script src="app.js" defer></script>
+</body>
+</html>
