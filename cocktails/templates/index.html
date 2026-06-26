@@ -12,9 +12,11 @@
 </head>
 <body>
 <div class="bg" aria-hidden="true"><span class="bg-grid"></span><span class="bg-glow g1"></span><span class="bg-glow g2"></span><span class="bg-glow g3"></span></div>
-<div class="page">
-  <aside class="rail rail-left"><div class="side-banner"><img src="{% static 'ad_nanocamo.png' %}" alt="NANOCAMO APP"><span class="adtag">AD</span></div></aside>
-  <div class="app">
+<div class="app">
+
+  <aside class="side-banner left"><img src="{% static 'ad_nanocamo.png' %}" alt="NANOCAMO APP"><span class="adtag">AD</span></aside>
+  <aside class="side-banner right"><img src="{% static 'ad_note.png' %}" alt="200 MIL"><span class="adtag">AD</span></aside>
+
 
   <header class="hero">
     <div class="sub">Cyberpunk Bartender Action</div>
@@ -96,8 +98,6 @@
     <div class="ad"><img src="{% static 'ad_note.png' %}" alt="200 MIL"><span class="adtag">AD</span></div>
   </div>
   <div class="bottom-feed"><img src="{% static 'ad_eye.png' %}" alt="Augmented Eye"><span class="adtag">AD</span></div>
-</div>
-  <aside class="rail rail-right"><div class="side-banner"><img src="{% static 'ad_note.png' %}" alt="200 MIL"><span class="adtag">AD</span></div></aside>
 </div>
 
 <script id="bootstrap">window.DRINKS={{ drinks_json|safe }};window.BOTTLED={{ bottled_json|safe }};window.NEWS={{ news_json|safe }};</script>
