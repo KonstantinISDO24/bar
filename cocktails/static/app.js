@@ -4,7 +4,7 @@ const FLAVORS = ["Сладкий","Кислый","Горький","Острый"
 const FLAVOR_CSS = {"Сладкий":"--adel","Кислый":"--delta","Горький":"--bron","Острый":"--flan","Игристый":"--cyan"};
 const TAG_CSS = {"Сладкий":"--adel","Кислый":"--delta","Горький":"--bron","Острый":"--flan","Игристый":"--cyan"};
 
-let state={tab:"name",flavor:null,type:null,sel:null,playing:false};
+let state={tab:"name",flavor:null,type:null,sel:null,playing:false,query:""};
 const listEl=document.getElementById("list");
 const detailEl=document.getElementById("detail");
 const statusEl=document.getElementById("status");
@@ -31,6 +31,17 @@ function makeRow(d,idx){
 
 function renderList(){
   listEl.innerHTML="";
+  if(state.query){
+    var q=state.query.toLowerCase();
+    var res=DRINKS.map(function(d,i){return [d,i];}).filter(function(p){
+      return p[0].ru.toLowerCase().indexOf(q)>-1 || p[0].en.toLowerCase().indexOf(q)>-1;});
+    var hd=document.createElement("div");hd.className="grouphd";
+    hd.textContent="Поиск · "+res.length+" совпадений";listEl.appendChild(hd);
+    if(!res.length){var e=document.createElement("div");e.className="grouphd";
+      e.style.color="var(--dim)";e.textContent="Ничего не найдено";listEl.appendChild(e);}
+    res.forEach(function(p){listEl.appendChild(makeRow(p[0],p[1]));});
+    return;
+  }
   if(state.tab==="bottled"){
     const hd=document.createElement("div");hd.className="grouphd";hd.textContent="Бутылочные напитки";listEl.appendChild(hd);
     BOTTLED.forEach((b,i)=>{
@@ -90,7 +101,7 @@ function showBottled(i){
 
 document.querySelectorAll(".tab").forEach(t=>{t.onclick=()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));t.classList.add("active");
-  state.tab=t.dataset.tab;renderList();};});
+  state.tab=t.dataset.tab;state.query="";var se=document.getElementById("search");if(se)se.value="";renderList();};});
 
 /* faux music player */
 const tracks=["A Neon Glow Lights...","Your Love is a Drug","Friendly Reminder","Every Day is Night","Good Friends","Karma Cab"];
@@ -98,6 +109,12 @@ let ti=0;const player=document.getElementById("player");
 document.getElementById("playbtn").onclick=function(){state.playing=!state.playing;player.classList.toggle("playing",state.playing);this.textContent=state.playing?"⏸":"▶";};
 document.getElementById("next").onclick=()=>{ti=(ti+1)%tracks.length;document.getElementById("track").textContent=tracks[ti];};
 document.getElementById("prev").onclick=()=>{ti=(ti-1+tracks.length)%tracks.length;document.getElementById("track").textContent=tracks[ti];};
+
+/* search */
+var searchEl=document.getElementById("search");
+var clearEl=document.getElementById("searchclear");
+if(searchEl){searchEl.addEventListener("input",function(){state.query=this.value.trim();renderList();});}
+if(clearEl){clearEl.addEventListener("click",function(){state.query="";if(searchEl){searchEl.value="";searchEl.focus();}renderList();});}
 
 renderList();
 

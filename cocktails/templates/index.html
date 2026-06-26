@@ -4,13 +4,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VA-11 HALL-A · B.T.C</title>
+<title>N3IR0-J1LL · B.T.C</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
+<div class="bg" aria-hidden="true"><span class="bg-grid"></span><span class="bg-glow g1"></span><span class="bg-glow g2"></span><span class="bg-glow g3"></span></div>
 <div class="app">
 
   <header class="hero">
@@ -28,9 +29,9 @@
   </div>
 
   <div class="ads">
-    <div class="ad ad-kiririn"><span class="ad-kick">напиток №1 в Glitch City</span><span class="ad-name">KIRIRIN &#9733; LIGHT</span><span class="ad-sub">Пей будущее</span></div>
-    <div class="ad ad-nano"><span class="ad-kick">customize</span><span class="ad-name">NANOCAMO APP</span><span class="ad-sub">Смени окрас за секунду</span></div>
-    <div class="ad ad-eye"><span class="ad-kick">augmented</span><span class="ad-name">EYE v2.06X</span><span class="ad-sub">Дополни свой взгляд</span></div>
+    <div class="ad wide"><img src="{% static 'ad_eye.png' %}" alt="Augmented Eye"><span class="adtag">AD</span></div>
+    <div class="ad tall"><img src="{% static 'ad_nanocamo.png' %}" alt="NANOCAMO APP"><span class="adtag">AD</span></div>
+    <div class="ad tall"><img src="{% static 'ad_note.png' %}" alt="200 MIL"><span class="adtag">AD</span></div>
   </div>
 
   <div class="computer raised">
@@ -51,15 +52,21 @@
       <button class="tab" data-tab="bottled">Бутылочные</button>
     </div>
 
+    <div class="searchbar">
+      <span class="sicon">⌕</span>
+      <input id="search" type="text" placeholder="Поиск по названию…" autocomplete="off" spellcheck="false">
+      <button id="searchclear" type="button" title="очистить">✕</button>
+    </div>
+
     <div class="win-client">
       <div class="btc-body">
         <div class="list" id="list"></div>
         <div class="detail" id="detail">
           <div class="welcome">
             <div class="term">C:\BTC&gt; load guide.dat<span class="c">_</span></div>
-            Добро пожаловать обратно, <b>Бармен</b>.<br><br>
+            Добро пожаловать обратно, <b>Jill</b>.<br><br>
             Это <b>B.T.C</b> — руководство по смешиванию.<br>
-            Выбери вкладку сверху и напиток в списке слева — рецепт и досье появятся здесь. Главное - не забывай улыбаться.
+            Выбери вкладку сверху и напиток в списке слева — рецепт и досье появятся здесь.
           </div>
         </div>
       </div>
@@ -87,7 +94,7 @@
 
   <div class="ticker"><div class="ticker-track" id="ticker"></div></div>
   <div class="foot">Помни, приятель — Пей ответственно!</div>
-  <div class="copy">&copy; 207X &middot; <b>N3IR0-J1LL</b> &middot; собственник: Константин &laquo;BigBoss&raquo; Кирисамов &middot; сертификат B.T.C</div>
+  <div class="copy">&copy; 207X &middot; <b>N3IR0-J1LL</b> &middot; собственник: Константин &laquo;Big Boss&raquo; Кирисамов (КК) &middot; сертификат B.T.C</div>
 </div>
 
 <script id="bootstrap">window.DRINKS={{ drinks_json|safe }};window.BOTTLED={{ bottled_json|safe }};window.NEWS={{ news_json|safe }};</script>
