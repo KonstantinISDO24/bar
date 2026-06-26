@@ -177,20 +177,30 @@ img{image-rendering:pixelated}
 
 /* ===== banners (user assets), news ticker, copyright (added) ===== */
 
-/* side banners pinned in the empty left/right margins (wide screens only) */
-.side-banner{position:fixed;top:50%;transform:translateY(-50%);width:clamp(160px,14vw,236px);z-index:5;
-  border:2px solid #000;background:#05040a;cursor:pointer;display:none;overflow:hidden;
+/* page grid: empty rail | content | empty rail */
+.page{display:grid;grid-template-columns:minmax(0,820px);justify-content:center;
+  max-width:1360px;margin:0 auto;position:relative;z-index:1}
+.rail{display:none}
+@media(min-width:1260px){
+  .page{grid-template-columns:1fr minmax(0,820px) 1fr;gap:14px}
+  .rail{display:block}
+  .rail-left{grid-column:1}
+  .app{grid-column:2}
+  .rail-right{grid-column:3}
+}
+/* sticky banners that ride along, then pin to the top */
+.side-banner{position:sticky;top:16px;display:block;width:clamp(160px,100%,236px);
+  border:2px solid #000;background:#05040a;cursor:pointer;overflow:hidden;
   box-shadow:inset 2px 2px 0 rgba(255,255,255,.18), inset -2px -2px 0 rgba(0,0,0,.5), 0 0 0 1px #000, 0 0 22px rgba(255,45,111,.16);
   transition:filter .15s ease, transform .15s ease}
-.side-banner.left{right:calc(50% + 410px + 14px)}
-.side-banner.right{left:calc(50% + 410px + 14px)}
-.side-banner:hover{filter:brightness(1.12) saturate(1.08);transform:translateY(-50%) scale(1.03)}
-.side-banner img{display:block;max-width:100%;width:auto;height:auto;max-height:90vh;margin:0 auto;image-rendering:pixelated}
+.rail-left .side-banner{margin-left:auto;margin-right:0}   /* hug the content */
+.rail-right .side-banner{margin-right:auto;margin-left:0}
+.side-banner:hover{filter:brightness(1.12) saturate(1.08)}
+.side-banner img{display:block;max-width:100%;width:100%;height:auto;image-rendering:pixelated}
 .side-banner::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:repeating-linear-gradient(0deg, rgba(0,0,0,.14) 0 1px, transparent 1px 3px)}
 .adtag{position:absolute;top:6px;right:7px;font-size:.58rem;letter-spacing:.1em;color:#fff;
   background:rgba(0,0,0,.55);padding:1px 6px;font-family:"Pixelify Sans"}
-@media (min-width:1260px){ .side-banner{display:block} }
 
 /* fallback for narrow screens: the two posters inline near the bottom */
 .posters-inline{display:grid;grid-template-columns:1fr 1fr;gap:12px}
