@@ -14,6 +14,10 @@
 <div class="bg" aria-hidden="true"><span class="bg-grid"></span><span class="bg-glow g1"></span><span class="bg-glow g2"></span><span class="bg-glow g3"></span></div>
 <div class="app">
 
+  <aside class="side-banner left"><img src="{% static 'ad_nanocamo.png' %}" alt="NANOCAMO APP"><span class="adtag">AD</span></aside>
+  <aside class="side-banner right"><img src="{% static 'ad_note.png' %}" alt="200 MIL"><span class="adtag">AD</span></aside>
+
+
   <header class="hero">
     <div class="sub">Cyberpunk Bartender Action</div>
     <div class="big">N3IR0-J1LL</div>
@@ -26,12 +30,6 @@
       <span class="ovl tl">Ch3 · GLITCH CITY</span>
       <span class="ovl tr"><b></b>BTC-FEED</span>
     </div>
-  </div>
-
-  <div class="ads">
-    <div class="ad wide"><img src="{% static 'ad_eye.png' %}" alt="Augmented Eye"><span class="adtag">AD</span></div>
-    <div class="ad tall"><img src="{% static 'ad_nanocamo.png' %}" alt="NANOCAMO APP"><span class="adtag">AD</span></div>
-    <div class="ad tall"><img src="{% static 'ad_note.png' %}" alt="200 MIL"><span class="adtag">AD</span></div>
   </div>
 
   <div class="computer raised">
@@ -95,6 +93,11 @@
   <div class="ticker"><div class="ticker-track" id="ticker"></div></div>
   <div class="foot">Помни, приятель — Пей ответственно!</div>
   <div class="copy">&copy; 207X &middot; <b>N3IR0-J1LL</b> &middot; собственник: Константин &laquo;Big Boss&raquo; Кирисамов (КК) &middot; сертификат B.T.C</div>
+  <div class="posters-inline">
+    <div class="ad"><img src="{% static 'ad_nanocamo.png' %}" alt="NANOCAMO APP"><span class="adtag">AD</span></div>
+    <div class="ad"><img src="{% static 'ad_note.png' %}" alt="200 MIL"><span class="adtag">AD</span></div>
+  </div>
+  <div class="bottom-feed"><img src="{% static 'ad_eye.png' %}" alt="Augmented Eye"><span class="adtag">AD</span></div>
 </div>
 
 <script id="bootstrap">window.DRINKS={{ drinks_json|safe }};window.BOTTLED={{ bottled_json|safe }};window.NEWS={{ news_json|safe }};</script>
